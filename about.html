@@ -13,10 +13,10 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{background:#fff;color:#222;overflow-x:hidden}
 
-/* HERO */
+
 .hero{
     height:25vh;
-    background:url('Bandeau1.jpg') center/cover no-repeat fixed;
+    background:url('Bandeau1.jpg') center 60% / 120% no-repeat fixed; 
     position:relative;
     display:flex;
     align-items:center;
@@ -36,7 +36,7 @@ body{background:#fff;color:#222;overflow-x:hidden}
     filter:brightness(1.25);
 }
 
-/* SCROLL TEXT ON HERO */
+
 .scroll-banner{
     position:absolute;
     bottom:10px;
@@ -56,13 +56,13 @@ body{background:#fff;color:#222;overflow-x:hidden}
     to{transform:translateX(-100%)}
 }
 
-/* NAVBAR (WITH COLOR BACK) */
+
 nav{
     position:sticky;
     top:0;
     z-index:1000;
     backdrop-filter:blur(10px);
-    background:linear-gradient(90deg,#0b3d2e,#0b2a4a); /* frontier green + navy */
+    background:linear-gradient(90deg,#0b3d2e,#0b2a4a); 
 }
 
 .nav-container{
@@ -191,7 +191,7 @@ nav{
 <body>
 
 <div class="hero">
-    <img src="logo.jpg" alt="logo">
+    <img src="logo.jpg" alt="SkyFront Logo" onerror="this.style.display='none'">
     <div class="scroll-banner">
         <p>SkyFront Airlines - Notre slogan ici • SkyFront Airlines - Notre slogan ici •</p>
     </div>
@@ -265,5 +265,6 @@ sections.forEach(section=>observer.observe(section));
 
 </body>
 </html>
+
 
 
