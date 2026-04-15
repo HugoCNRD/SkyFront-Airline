@@ -1,248 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyFront Airlines Virtual</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkyFront Airlines Virtual</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a2d9d5c66d.js" crossorigin="anonymous"></script>
 
-    <!-- Icons -->
-    <script src="https://kit.fontawesome.com/a2d9d5c66d.js" crossorigin="anonymous"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#fff;color:#222;overflow-x:hidden}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+/* HERO (YES: Bandeau.jpg is background) */
+.hero{
+    height:25vh;
+    background:url('Bandeau.jpg') center/cover no-repeat fixed;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+}
+.hero img{
+    position:relative;
+    z-index:2;
+    max-height:75%;
+    filter:brightness(1.25);
+}
 
-        body {
-            background: #ffffff;
-            color: #333;
-            overflow-x: hidden;
-        }
+/* SCROLL TEXT (no background, italic) */
+.scroll-banner{
+    overflow:hidden;
+    white-space:nowrap;
+    color:#1f2937;
+}
+.scroll-banner p{
+    display:inline-block;
+    padding:8px 0;
+    animation:scrollText 20s linear infinite;
+    font-style:italic;
+}
+@keyframes scrollText{
+    from{transform:translateX(100%)}
+    to{transform:translateX(-100%)}
+}
 
-        /* HEADER */
-        .hero {
-            height: 25vh;
-            width: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Bandeau.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* NAVBAR GLASS */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.6);
+    border-bottom:1px solid rgba(0,0,0,0.08);
+}
 
-        .hero img {
-            max-height: 80%;
-            filter: brightness(1.2);
-        }
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:center; /* CENTERED */
+    align-items:center;
+    padding:12px 20px;
+    position:relative;
+}
 
-        /* SCROLL TEXT */
-        .scroll-banner {
-            background: #0a3d62;
-            color: white;
-            overflow: hidden;
-            white-space: nowrap;
-        }
+.nav-links{
+    display:flex;
+    gap:30px;
+}
 
-        .scroll-banner p {
-            display: inline-block;
-            padding: 10px 0;
-            animation: scrollText 15s linear infinite;
-        }
+.nav-links a{
+    color:#0f172a;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:0.3s;
+    position:relative;
+    font-weight:500;
+}
 
-        @keyframes scrollText {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
-        }
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    bottom:-5px;
+    left:0;
+    width:0;
+    height:2px;
+    background:#2bb673; /* pro green */
+    transition:0.3s;
+}
 
-        /* NAVBAR */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: linear-gradient(90deg, #2ecc71, #2980b9);
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:#2bb673}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            padding: 15px;
-        }
+/* BURGER */
+.burger{
+    display:none;
+    position:absolute;
+    left:20px;
+    font-size:22px;
+    color:#0f172a;
+    cursor:pointer;
+}
 
-        nav ul li {
-            position: relative;
-        }
+/* CONTENT */
+.section{
+    width:80%;
+    margin:100px auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    opacity:0;
+    transform:translateY(80px);
+    transition:all 1.4s ease;
+}
+.section.visible{
+    opacity:1;
+    transform:translateY(0);
+}
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
+.box{
+    width:45%;
+    padding:35px;
+    border-radius:18px;
+    color:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
 
-        nav ul li a:hover {
-            color: #000;
-            transform: scale(1.1);
-        }
+/* YOUR COLORS but more PRO */
+.green{background:linear-gradient(135deg,#1f9d55,#15803d)}
+.blue{background:linear-gradient(135deg,#2563eb,#1e40af)}
 
-        /* CONTENT SECTIONS */
-        .section {
-            width: 80%;
-            margin: 80px auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
+.box h2{margin-bottom:10px}
 
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.icon-side{
+    width:45%;
+    text-align:center;
+    font-size:60px;
+    color:#94a3b8;
+}
 
-        .box {
-            width: 45%;
-            padding: 30px;
-            border-radius: 20px;
-            color: white;
-        }
+/* FOOTER */
+.footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:rgba(37,99,235,0.85);
+    color:#fff;
+    text-align:center;
+    padding:8px;
+    font-size:13px;
+}
 
-        .green {
-            background: #2ecc71;
-        }
+/* MOBILE */
+@media(max-width:768px){
+    .burger{display:block}
 
-        .blue {
-            background: #2980b9;
-        }
+    .nav-links{
+        position:absolute;
+        top:60px;
+        right:10px;
+        background:rgba(255,255,255,0.95);
+        flex-direction:column;
+        width:220px;
+        padding:15px;
+        display:none;
+        border-radius:10px;
+    }
 
-        .empty {
-            width: 45%;
-            text-align: center;
-            font-size: 50px;
-            color: #ccc;
-        }
+    .nav-links.active{display:flex}
 
-        /* FOOTER */
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: rgba(41, 128, 185, 0.8);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-        @media(max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .section {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .box, .empty {
-                width: 100%;
-            }
-        }
-    </style>
+    .section{flex-direction:column;gap:25px}
+    .box,.icon-side{width:100%}
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HERO -->
-    <div class="hero">
-        <img src="logo.jpg" alt="SkyFront Airlines Logo">
-    </div>
+<div class="hero">
+    <img src="logo.jpg" alt="logo">
+</div>
 
-    <!-- SCROLL TEXT -->
-    <div class="scroll-banner">
-        <p>SkyFront Airlines - Notre slogan ici • SkyFront Airlines - Notre slogan ici •</p>
-    </div>
+<div class="scroll-banner">
+    <p>SkyFront Airlines - Notre slogan ici • SkyFront Airlines - Notre slogan ici •</p>
+</div>
 
-    <!-- NAV -->
-    <nav>
-        <ul>
-            <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
-            <li><a href="#"><i class="fas fa-plane"></i> Fleet</a></li>
-            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
-            <li><a href="#"><i class="fas fa-star"></i> Ranks</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Staff</a></li>
-            <li><a href="#"><i class="fas fa-cogs"></i> Operations</a></li>
-        </ul>
-    </nav>
-
-    <!-- CONTENT -->
-
-    <div class="section">
-        <div class="box green">
-            <h2>Who we are</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="empty"><i class="fas fa-plane"></i></div>
-    </div>
-
-    <div class="section">
-        <div class="empty"><i class="fas fa-globe"></i></div>
-        <div class="box blue">
-            <h2>Our vision</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<nav>
+    <div class="nav-container">
+        <div class="burger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="nav-links" id="navLinks">
+            <a href="#"><i class="fas fa-info-circle"></i>About</a>
+            <a href="#"><i class="fas fa-plane"></i>Fleet</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i>Destinations</a>
+            <a href="#"><i class="fas fa-star"></i>Ranks</a>
+            <a href="#"><i class="fas fa-users"></i>Staff</a>
+            <a href="#"><i class="fas fa-cogs"></i>Operations</a>
         </div>
     </div>
+</nav>
 
-    <div class="section">
-        <div class="box green">
-            <h2>Our Fleet</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="empty"><i class="fas fa-plane-departure"></i></div>
+<div class="section">
+    <div class="box green">
+        <h2><i class="fas fa-user-group"></i> Who we are</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
+    <div class="icon-side"><i class="fas fa-plane"></i></div>
+</div>
 
-    <div class="section">
-        <div class="empty"><i class="fas fa-map"></i></div>
-        <div class="box blue">
-            <h2>Our Network</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+<div class="section">
+    <div class="icon-side"><i class="fas fa-globe"></i></div>
+    <div class="box blue">
+        <h2><i class="fas fa-eye"></i> Our vision</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
+</div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        © 2026 SkyFront Airlines Virtual - Mentions légales
+<div class="section">
+    <div class="box green">
+        <h2><i class="fas fa-jet-fighter"></i> Our Fleet</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
     </div>
+    <div class="icon-side"><i class="fas fa-plane-departure"></i></div>
+</div>
 
-    <script>
-        const sections = document.querySelectorAll('.section');
+<div class="section">
+    <div class="icon-side"><i class="fas fa-map"></i></div>
+    <div class="box blue">
+        <h2><i class="fas fa-network-wired"></i> Our Network</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+</div>
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
+<div class="footer">
+© 2026 SkyFront Airlines Virtual - Mentions légales
+</div>
 
-        sections.forEach(section => observer.observe(section));
-    </script>
+<script>
+function toggleMenu(){
+    document.getElementById('navLinks').classList.toggle('active');
+}
+
+const sections=document.querySelectorAll('.section');
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+},{threshold:0.15});
+sections.forEach(section=>observer.observe(section));
+</script>
 
 </body>
 </html>
+
