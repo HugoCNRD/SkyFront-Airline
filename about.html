@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyFront Airlines Virtual</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/a2d9d5c66d.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        .hero {
+            height: 25vh;
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Bandeau.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero img {
+            max-height: 80%;
+            filter: brightness(1.2);
+        }
+
+        /* SCROLL TEXT */
+        .scroll-banner {
+            background: #0a3d62;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .scroll-banner p {
+            display: inline-block;
+            padding: 10px 0;
+            animation: scrollText 15s linear infinite;
+        }
+
+        @keyframes scrollText {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, #2ecc71, #2980b9);
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            padding: 15px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        /* CONTENT SECTIONS */
+        .section {
+            width: 80%;
+            margin: 80px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .box {
+            width: 45%;
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .green {
+            background: #2ecc71;
+        }
+
+        .blue {
+            background: #2980b9;
+        }
+
+        .empty {
+            width: 45%;
+            text-align: center;
+            font-size: 50px;
+            color: #ccc;
+        }
+
+        /* FOOTER */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(41, 128, 185, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+        @media(max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .section {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .box, .empty {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img src="logo.jpg" alt="SkyFront Airlines Logo">
+    </div>
+
+    <!-- SCROLL TEXT -->
+    <div class="scroll-banner">
+        <p>SkyFront Airlines - Notre slogan ici • SkyFront Airlines - Notre slogan ici •</p>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+        <ul>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#"><i class="fas fa-plane"></i> Fleet</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
+            <li><a href="#"><i class="fas fa-star"></i> Ranks</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Staff</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i> Operations</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENT -->
+
+    <div class="section">
+        <div class="box green">
+            <h2>Who we are</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="empty"><i class="fas fa-plane"></i></div>
+    </div>
+
+    <div class="section">
+        <div class="empty"><i class="fas fa-globe"></i></div>
+        <div class="box blue">
+            <h2>Our vision</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="box green">
+            <h2>Our Fleet</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="empty"><i class="fas fa-plane-departure"></i></div>
+    </div>
+
+    <div class="section">
+        <div class="empty"><i class="fas fa-map"></i></div>
+        <div class="box blue">
+            <h2>Our Network</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2026 SkyFront Airlines Virtual - Mentions légales
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+
+</body>
+</html>
