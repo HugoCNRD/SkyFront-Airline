@@ -15,55 +15,63 @@ body{background:#fff;color:#222;overflow-x:hidden}
 
 /* HERO */
 .hero{
-    height:25vh;
+    height:60vh;
     width:100%;
-    background:url('Bandeau.jpg') center center / cover no-repeat; /* FIX full width + centered */
+    background:url('Bandeau1.jpg') center center / cover no-repeat;
     position:relative;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
 }
+
+@media(max-width:768px){
+    .hero{height:25vh}
+}
+
 .hero::after{
     content:"";
     position:absolute;
     inset:0;
     background:rgba(0,0,0,0.35);
 }
+
 .hero img{
     position:relative;
     z-index:2;
-    max-height:75%;
-    filter:brightness(1.25);
+    max-height:70%;
 }
 
-/* SCROLL TEXT ON HERO */
+/* SCROLL TEXT */
 .scroll-banner{
     position:absolute;
-    bottom:10px;
+    bottom:15px;
     width:100%;
     overflow:hidden;
-    white-space:nowrap;
     z-index:2;
 }
+
 .scroll-banner p{
     display:inline-block;
-    animation:scrollText 20s linear infinite;
+    font-size:20px;
     font-style:italic;
     color:white;
+    padding-left:50%;
+    animation:scrollText 18s linear infinite;
 }
+
 @keyframes scrollText{
-    from{transform:translateX(100%)}
+    from{transform:translateX(0)}
     to{transform:translateX(-100%)}
 }
 
-/* NAVBAR (WITH COLOR BACK) */
+/* NAV */
 nav{
     position:sticky;
     top:0;
     z-index:1000;
     backdrop-filter:blur(10px);
-    background:linear-gradient(90deg,#0b3d2e,#0b2a4a); /* frontier green + navy */
+    background:linear-gradient(90deg,#2ecc71,#0b2a4a);
 }
 
 .nav-container{
@@ -87,7 +95,6 @@ nav{
     display:flex;
     align-items:center;
     gap:6px;
-    transition:0.3s;
     position:relative;
     font-weight:500;
 }
@@ -99,24 +106,21 @@ nav{
     left:0;
     width:0;
     height:2px;
-    background:#2ecc71;
+    background:white;
     transition:0.3s;
 }
 
 .nav-links a:hover::after{width:100%}
-.nav-links a:hover{color:#2ecc71}
 
-/* BURGER */
 .burger{
     display:none;
     position:absolute;
     left:20px;
     font-size:22px;
     color:white;
-    cursor:pointer;
 }
 
-/* CONTENT */
+/* SECTIONS */
 .section{
     width:80%;
     margin:100px auto;
@@ -127,10 +131,8 @@ nav{
     transform:translateY(80px);
     transition:all 1.4s ease;
 }
-.section.visible{
-    opacity:1;
-    transform:translateY(0);
-}
+
+.section.visible{opacity:1;transform:translateY(0)}
 
 .box{
     width:45%;
@@ -140,29 +142,50 @@ nav{
     box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* COLORS (as requested) */
-.green{background:linear-gradient(135deg,#0b3d2e,#0b3d2e)}
-.blue{background:linear-gradient(135deg,#0b2a4a,#0f3e6d)}
-
-.box h2{margin-bottom:10px}
+.green{background:#2ecc71}
+.blue{background:#0b2a4a}
 
 .icon-side{
     width:45%;
     text-align:center;
+}
+
+.icon-side img{
+    max-width:200px;
+}
+
+.icon-side i{
     font-size:60px;
     color:#94a3b8;
 }
 
+/* BOTTOM BANNER */
+.bottom-banner{
+    width:100%;
+    height:120px;
+    background:url('Bandeaubas.jpg') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:22px;
+    font-weight:600;
+}
+
 /* FOOTER */
 .footer{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    background:rgba(11,42,74,0.9);
-    color:#fff;
     text-align:center;
-    padding:8px;
-    font-size:13px;
+    padding:20px;
+    background:#0b2a4a;
+    color:white;
+}
+
+.footer .icons{
+    margin-bottom:10px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    font-size:20px;
 }
 
 /* MOBILE */
@@ -192,7 +215,7 @@ nav{
 <body>
 
 <div class="hero">
-    <img src="logo.jpg" alt="SkyFront Logo" onerror="this.style.display='none'">
+    <img src="logo.jpg">
     <div class="scroll-banner">
         <p>SkyFront Airlines - Notre slogan ici • SkyFront Airlines - Notre slogan ici •</p>
     </div>
@@ -202,50 +225,60 @@ nav{
     <div class="nav-container">
         <div class="burger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <div class="nav-links" id="navLinks">
-            <a href="#"><i class="fas fa-info-circle"></i>About</a>
-            <a href="#"><i class="fas fa-plane"></i>Fleet</a>
-            <a href="#"><i class="fas fa-map-marker-alt"></i>Destinations</a>
-            <a href="#"><i class="fas fa-star"></i>Ranks</a>
-            <a href="#"><i class="fas fa-users"></i>Staff</a>
-            <a href="#"><i class="fas fa-cogs"></i>Operations</a>
+            <a href="#">About</a>
+            <a href="#">Fleet</a>
+            <a href="#">Destinations</a>
+            <a href="#">Ranks</a>
+            <a href="#">Staff</a>
+            <a href="#">Operations</a>
+            <a href="#">Apply Now</a>
         </div>
     </div>
 </nav>
 
 <div class="section">
     <div class="box green">
-        <h2><i class="fas fa-user-group"></i> Who we are</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h2>Who we are</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
     </div>
-    <div class="icon-side"><i class="fas fa-plane"></i></div>
+    <div class="icon-side"><img src="logo.jpg"></div>
 </div>
 
 <div class="section">
     <div class="icon-side"><i class="fas fa-globe"></i></div>
     <div class="box blue">
-        <h2><i class="fas fa-eye"></i> Our vision</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h2>Our vision</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
     </div>
 </div>
 
 <div class="section">
     <div class="box green">
-        <h2><i class="fas fa-jet-fighter"></i> Our Fleet</h2>
+        <h2>Our Mission</h2>
         <p>Lorem ipsum dolor sit amet.</p>
     </div>
-    <div class="icon-side"><i class="fas fa-plane-departure"></i></div>
+    <div class="icon-side"><i class="fas fa-route"></i></div>
 </div>
 
 <div class="section">
-    <div class="icon-side"><i class="fas fa-map"></i></div>
+    <div class="icon-side"><i class="fas fa-plane"></i></div>
     <div class="box blue">
-        <h2><i class="fas fa-network-wired"></i> Our Network</h2>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <h2>Ready to board ?</h2>
+        <p><a href="#" style="color:white;text-decoration:underline;">Join our recruitment form</a></p>
     </div>
 </div>
 
+<div class="bottom-banner">
+SkyFront Airlines Virtual
+</div>
+
 <div class="footer">
-© 2026 SkyFront Airlines Virtual - Mentions légales
+    <div class="icons">
+        <i class="fab fa-instagram"></i>
+        <i class="fas fa-plane"></i>
+        <i class="fas fa-envelope"></i>
+    </div>
+    © 2026 SkyFront Airlines Virtual - Mentions légales
 </div>
 
 <script>
@@ -266,6 +299,7 @@ sections.forEach(section=>observer.observe(section));
 
 </body>
 </html>
+
 
 
 
