@@ -56,8 +56,13 @@ body{background:#fff;color:#222;overflow-x:hidden}
     font-size:20px;
     font-style:italic;
     color:white;
-    padding-left:50%;
+    white-space:nowrap;
     animation:scrollText 18s linear infinite;
+}
+
+@keyframes scrollText{
+    from{transform:translateX(100%);} /* starts fully outside right */
+    to{transform:translateX(-100%);} /* exits left */
 }
 
 @keyframes scrollText{
@@ -71,7 +76,7 @@ nav{
     top:0;
     z-index:1000;
     backdrop-filter:blur(10px);
-    background:linear-gradient(90deg,#2ecc71,#0b2a4a);
+    background:linear-gradient(90deg,#0b3d2e,#0b2a4a);
 }
 
 .nav-container{
@@ -142,7 +147,7 @@ nav{
     box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
-.green{background:#2ecc71}
+.green{background:#0b3d2e}
 .blue{background:#0b2a4a}
 
 .icon-side{
@@ -299,6 +304,7 @@ sections.forEach(section=>observer.observe(section));
 
 </body>
 </html>
+
 
 
 
