@@ -7,6 +7,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a2d9d5c66d.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <style>
@@ -130,12 +131,9 @@ nav{
 .section{
     width:80%;
     margin:100px auto;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:40px; 
-
     opacity:0;
     transform:translateY(80px);
     transition:all 1.4s ease;
@@ -163,7 +161,7 @@ a.arendiuz:hover::after{
     width:100%;
 }
 
-    
+
 .footer .legal{
     font-size:12px;
     opacity:0.7;
@@ -186,9 +184,8 @@ a.arendiuz:hover::after{
 .blue{background:#0b2a4a}
 
 .icon-side{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    width:45%;
+    text-align:center;
 }
 
 .icon-side img{
@@ -199,11 +196,6 @@ a.arendiuz:hover::after{
     font-size:70px;
     color:#cbd5e1;
     transition:0.3s;
-}
-
-.box, .icon-side{
-    flex:1;          
-    width:auto;     
 }
 
 .section:hover .icon-side i{
@@ -305,6 +297,9 @@ We operate exclusively Airbus aircraft, flying the A320 family from the A318 to 
     <div class="icon-side"><img src="logo.jpg"></div>
 </div>
 
+<div class="section">
+   <div class="icon-side">
+    <i class="fas fa-globe-americas"></i>
 <div class="icon-side">
     <i class="fas fa-globe"></i>
 </div>
@@ -335,10 +330,14 @@ We aim to deliver the best possible virtual flying experience for every pilot.
 </p>
     </div>
 <div class="icon-side">
+    <i class="fas fa-clipboard-check"></i>
     <i class="fas fa-tasks"></i>
 </div>
 </div>
 
+<div class="section">
+    <div class="icon-side">
+    <i class="fas fa-plane-departure"></i>
 <div class="icon-side">
     <i class="fas fa-plane"></i>
 </div>
