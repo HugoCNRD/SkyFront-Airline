@@ -138,6 +138,37 @@ nav{
     transition:all 1.4s ease;
 }
 
+a.arendiuz{
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    font-weight: inherit;
+}
+
+a.arendiuz::after{
+    content:"";
+    position:absolute;
+    bottom:-3px;
+    left:0;
+    width:0;
+    height:2px;
+    background:white;
+    transition:0.3s;
+}
+
+a.arendiuz:hover::after{
+    width:100%;
+}
+
+    
+.footer .legal{
+    font-size:12px;
+    opacity:0.7;
+    line-height:1.4;
+    max-width:900px;
+    margin:auto;
+}
+
 .section.visible{opacity:1;transform:translateY(0)}
 
 .box{
@@ -246,8 +277,15 @@ nav{
 
 <div class="section">
     <div class="box green">
-        <h2>Who we are</h2>
-        <p>SkyFront Airlines Virtual is a Virtual airline created by <a href="https://community.infiniteflight.com/u/arendiuz/">Arendiuz</a> during the summer of 2026. SkyFront recreates Frontier real world airline operations.<br/> Our main hub is Denver, Colorado <strong>KDEN</strong> and we propose over 120 destinations, mainly in the US, but also Mexico, the Carribean and central America. We only operate airbus planes, flying all the A320 family from the A318 to the A321 (and soon A321 NEO !), with unique liveries representing the US wildlife !</p>
+<h2>Who we are</h2>
+<p>
+SkyFront Airlines Virtual is a virtual airline created by <a class="arendiuz" href="https://community.infiniteflight.com/u/arendiuz/">Arendiuz</a> during the summer of 2026.  
+SkyFront recreates real-world Frontier Airlines operations.
+<br><br>
+
+Our main hub is Denver, Colorado (<strong>KDEN</strong>), and we operate over 120 destinations, mainly across the United States, as well as Mexico, the Caribbean, and Central America.  
+We operate exclusively Airbus aircraft, flying the A320 family from the A318 to the A321 (and soon the A321neo), featuring unique liveries inspired by U.S. wildlife.
+</p>
     </div>
     <div class="icon-side"><img src="logo.jpg"></div>
 </div>
@@ -255,15 +293,30 @@ nav{
 <div class="section">
     <div class="icon-side"><img src="#"></i></div>
     <div class="box blue">
-        <h2>Our vision</h2>
-        <p>We think it is important to create a realistic enjoyable flight experience for everyone, and that is why we are dedicated to provide quality operations. Our goal is to remain as active as possible, to provide pilots a new VA experience. We alos want to create a community for each of our pilots, where everyon is welcomed !</p>
+<h2>Our Vision</h2>
+<p>
+We believe it is important to create a realistic and enjoyable flight experience for everyone.  
+That is why we are dedicated to providing high-quality operations.
+
+Our goal is to remain active and to offer pilots a unique virtual airline experience.  
+We also aim to build a strong community where every pilot is welcome.
+</p>
     </div>
 </div>
 
 <div class="section">
     <div class="box green">
-        <h2>Our Mission</h2>
-        <p>Our goal is to provide the best virtual airline experience by: <br/><br/>• Offering multiple routes across all the United States, flying gorgeous Frontier's liveries <br/>• Maintaining the VA active, with events, group flights, and community involvement <br/>• Creating a welcoming community for all pilots<br/>• Keeping a high level of realism with the VA. <br/><br/>We aim to create the best flying experience for all pilots</p>
+<h2>Our Mission</h2>
+<p>
+Our goal is to provide the best virtual airline experience by:<br><br>
+
+• Offering a wide range of routes across the United States, flying stunning Frontier-inspired liveries<br>
+• Keeping the VA active through events, group flights, and community engagement<br>
+• Creating a welcoming community for all pilots<br>
+• Maintaining a high level of realism in all operations<br><br>
+
+We aim to deliver the best possible virtual flying experience for every pilot.
+</p>
     </div>
     <div class="icon-side"><i class="fas fa-route"></i></div>
 </div>
@@ -285,8 +338,18 @@ SkyFront Airlines Virtual
         <i class="fab fa-instagram"></i>
         <i class="fas fa-plane"></i>
         <i class="fas fa-envelope"></i>
+
+<div class="footer">
+    <div class="icons">
+        <i class="fab fa-instagram"></i>
+        <i class="fas fa-plane"></i>
+        <i class="fas fa-envelope"></i>
     </div>
-   Disclaimer : SkyFront Airlines Virtual is not affiliated with, endoresed, or sponsored by any real world airline. 
+
+    <p class="legal">
+      SkyFront Airlines Virtual<br>
+        SkyFront Airlines Virtual is a fictional virtual airline and is not affiliated with, endorsed by, or sponsored by any real-world airline or aviation company.
+    </p>
 </div>
 
 <script>
