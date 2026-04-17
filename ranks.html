@@ -24,13 +24,11 @@ body{
     overflow-x:hidden;
 }
 
-
 .hero{
     height:40vh; 
     width:100%;
     background:url('Bandeaurank.jpg') center center / cover no-repeat;
 }
-
 
 nav{
     position:sticky;
@@ -75,7 +73,6 @@ nav{
     width:100%;
 }
 
-
 .section{
     width:80%;
     margin:100px auto;
@@ -96,7 +93,6 @@ nav{
 .green{background:#0b3d2e}
 .blue{background:#0b2a4a}
 
-
 .icon-side{
     width:45%;
     display:flex;
@@ -108,7 +104,6 @@ nav{
     max-width:220px;
 }
 
-
 .section-large{
     width:80%;
     margin:100px auto;
@@ -119,7 +114,6 @@ nav{
     border-radius:18px;
     box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
-
 
 .footer{
     text-align:center;
@@ -155,13 +149,40 @@ nav{
     color:#94a3b8;
 }
 
-
+/* 🔥 MOBILE FIX (image à côté mais propre) */
 @media(max-width:768px){
+
     .section{
-        flex-direction:column;
+        flex-direction:row;
+        gap:15px;
+        margin:40px auto;
+        align-items:center;
     }
-    .box,.icon-side{
-        width:100%;
+
+    .box{
+        width:60%;
+        padding:20px;
+        font-size:14px;
+    }
+
+    .box h2{
+        font-size:16px;
+        margin-bottom:8px;
+    }
+
+    .icon-side{
+        width:40%;
+    }
+
+    .icon-side img{
+        max-width:100%;
+    }
+
+    .section-large{
+        width:90%;
+        padding:25px;
+        margin:50px auto;
+        font-size:14px;
     }
 }
 </style>
@@ -169,9 +190,7 @@ nav{
 
 <body>
 
-
 <div class="hero"></div>
-
 
 <nav>
     <div class="nav-container">
@@ -188,35 +207,37 @@ nav{
 
 <div class="section-large">
     <h2>Rank System</h2>
-    <p>Our ranks are based on a simple, 4-ranks system, which will grant you access to more and more of our fleet as you file PIREPs and accumulta flight time ! <br/>Our ROTWs program and events are free to everyone !<br/>We also created a ranking systems for those of you who control the skies as IFATCs !</p>
+    <p>
+    Our ranks are based on a simple 4-rank system, which grants you access to more of our fleet as you file PIREPs and accumulate flight time.<br>
+    Our ROTWs program and events are open to everyone!<br>
+    We also created a ranking system for those who control the skies as IFATCs!
+    </p>
 </div>
 
 <div class="section">
     <div class="box green">
-        <h2>Cadet - 0h -> 5h</h2>
-        <p>This is the first rank you get after joining the VA.<br/>Your first flight can be any flight from our database - codeshare included !<br/>After your first flight, you will be allowed to fly the CRJ-700</p>
+        <h2>Cadet - 0h → 5h</h2>
+        <p>This is the first rank after joining the VA.<br>Your first flight can be any flight from our database — codeshare included!<br>After your first flight, you will be allowed to fly the CRJ-700.</p>
     </div>
     <div class="icon-side">
         <img src="rank1.jpg">
     </div>
 </div>
 
-
 <div class="section">
     <div class="icon-side">
         <img src="rank2.jpg">
     </div>
     <div class="box blue">
-        <h2>Second Officer - 5h -> 20h</h2>
-        <p>After exploring the vast CRJ-700 network with your first rank, you'll then be authorized to fly as well the A318-200 and A320-200 CEO and NEO (once available on the game)</p>
+        <h2>Second Officer - 5h → 20h</h2>
+        <p>After exploring the CRJ-700 network, you will gain access to the A318-200 and A320-200 (CEO and NEO).</p>
     </div>
 </div>
 
-
 <div class="section">
     <div class="box green">
-        <h2>First officer 20h -> 50 h</h2>
-        <p>Congratulations ! You just hit 50h ! <br/>This rank will grant you access to A321-200 CEO and NEO (when available)</p>
+        <h2>First Officer - 20h → 50h</h2>
+        <p>Congratulations! You reached 50 hours!<br>This rank unlocks the A321-200 (CEO and NEO).</p>
     </div>
     <div class="icon-side">
         <img src="rank3.jpg">
@@ -224,17 +245,14 @@ nav{
 </div>
 
 <div class="section">
-    <div class="section">
     <div class="icon-side">
         <img src="rank4.jpg">
     </div>
     <div class="box blue">
-        <h2>Captain 150+h h</h2>
-        <p>WOW ! You have achieved the highest rank possible !<br/> You'll have access to ALL codeshares (not only those selected each week in the ROTWs) and some extra perks, such as priority for take off during group flights/events</p>
+        <h2>Captain - 150h+</h2>
+        <p>WOW! Highest rank achieved!<br>You gain access to all codeshares and perks like priority takeoff during events.</p>
     </div>
 </div>
-
-
 
 <div class="footer">
     <div class="icons">
@@ -245,9 +263,8 @@ nav{
 
     <p class="legal">
       SkyFront Airlines Virtual<br>
-        SkyFront Airlines Virtual is a virtual airline and is not affiliated with, endorsed by, or sponsored by any real-world airline or aviation company.
+      SkyFront Airlines Virtual is not affiliated with any real-world airline.
     </p>
-</div>
 </div>
 
 </body>
