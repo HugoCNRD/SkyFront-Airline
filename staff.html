@@ -237,15 +237,32 @@ nav{
 
 <div class="footer">
     <div class="icons">
-        <a href="#" class="footer-link">Instagram</a>
-        <a href="#" class="footer-link">Flights</a>
-        <a href="#" class="footer-link">Contact</a>
+        <a href="#" class="footer-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="footer-link"><i class="fas fa-plane"></i></a>
+        <a href="mailto:skyfront-airline@gmail.com" class="footer-link"><i class="fas fa-envelope"></i></a>
     </div>
 
-    <p>
-        SkyFront Airlines Virtual is not affiliated with, endorsed by or sponsored by any real-world airline.
+    <p class="legal">
+      SkyFront Airlines Virtual<br>
+        SkyFront Airlines Virtual is a virtual airline and is not affiliated with, endorsed by, or sponsored by any real-world airline or aviation company.
     </p>
 </div>
+
+<script>
+function toggleMenu(){
+    document.getElementById('navLinks').classList.toggle('active');
+}
+
+const sections=document.querySelectorAll('.section');
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+},{threshold:0.15});
+sections.forEach(section=>observer.observe(section));
+</script>
 
 </body>
 </html>
